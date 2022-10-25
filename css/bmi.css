@@ -1,0 +1,46 @@
+#calculator{
+    position: absolute;
+    width: 50%;
+    height: 50%;
+}
+
+#index{
+    position: absolute;
+    top: 3%;
+    right: 2%;
+}
+
+#bar {
+    position: fixed;
+    float: right;
+    top: 5%;
+    right: 3%;
+    background-image: linear-gradient(to right,blue, green, orange, red);
+    width: 45%;
+    height: 2cm;
+}
+
+#bar ul li {
+    display: inline-block;
+    list-style: none;
+    width: 20%;
+    text-align: center;
+    padding: 2%;
+    z-index: 999;
+}
+
+#bar p {
+    position: fixed;
+    background-color: hsla(0, 1%, 12%, 0.8);
+    width: 25px;
+    height: 135px;
+    border: 2px solid black;
+
+    top: 0%; 
+}
+
+#mii{
+    position: absolute;
+    top: 20%;
+    left: 45%
+}

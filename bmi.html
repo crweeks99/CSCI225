@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+
+<div id="calculator">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="css/bmi.css">
+
+    <form>
+        <h1>BMI Calculator</h1>
+        <p><input type="text placeholder=" Enter your name id="name">
+        </p>
+        <p id="message"></p>
+        <p><input type="text" placeholder="Enter your weight" id="weight" name="weight"><label for="weightbox"> Weight
+                in
+                pounds</label>
+        </p>
+        <p><input type="text" placeholder="Enter your height" id="height" name="height"><label for="heightbox"> Height
+                in
+                inches</label>
+        </p>
+        <p><select size="1" name="age" id="agemenu">
+                <option value="Below 20">Below 20</option>
+                <option value="20-30">20-30</option>
+                <option value="31-50">31-50</option>
+                <option value="51-70">51-70</option>
+                <option value="Above 71">Above 71</option>
+            </select><label for="age"> Age</label></p>
+
+        <p><input type="button" id="rbutton" value="Compute BMI"> </p>
+
+        <p id="bmi"> Your BMI is: </p>
+
+        <p id="overweightAlert"> </p>
+</div>
+
+<p id="mii"><img src="img/Mii.webp" alt="Mii"> </p>
+
+<span id="bar"> &#124 </span>
+
+<div class="bar" id="bar">
+    <ul>
+        <li> Underweight </li>
+        <li> Normal </li>
+        <li> Overweight </li>
+        <li> Obese </li>
+    </ul>
+    <p name="line" id="line"> </p>
+</div>
+
+</form>
+<script>
+    function welcomemessage() {
+        var name = document.getElementById('name').value;
+        document.getElementById('message').innerHTML = "Welcome <b>" + name + ", thanks for using our BMI Calculator" + "</b>!";
+    }
+    //event -> event handler
+    var fE = document.getElementById('name'); //input text box
+    fE.addEventListener('blur', welcomemessage, false);
+</script>
+
+
+
+
+<script>
+    function calculate() {
+        var ageGroup = document.getElementById('agemenu').selectedIndex;
+        var weight = parseFloat(document.getElementsByName('weight')[0].value);
+        var height = parseFloat(document.getElementsByName('height')[0].value);
+
+        if (ageGroup == 0) {
+            document.getElementById('bmi').innerHTML = "You're too young, refer to: "
+                + "<a href=\"https://www.cdc.gov/growthcharts/data/set1clinical/cj41l023.pdf\"> CDC body mass index-for-age percentiles</a>";
+        }
+
+        else if (Number.isNaN(Number.parseFloat(weight)) || Number.isNaN(Number.parseFloat(height))) {
+            window.alert("Please enter a real number!!!");
+        }
+        else {
+            bmi = (weight * 703) / (height * height);
+            document.getElementById('bmi').innerHTML = "Your BMI is: " + bmi.toFixed(2);
+        }
+
+        if ((bmi.toFixed(2)) >= 28) {
+            document.getElementById('overweightAlert').textContent = "You're overweight"
+            window.open("https://www.nhlbi.nih.gov/health/educational/lose_wt/control.htm");
+        }
+
+
+        if ((bmi.toFixed(2)) <= 10) {
+            mii.animate([{ transform: 'scaleX(1.0)' }, { transform: 'scaleX(0.1)' }],
+                { duration: 200, fill: "forwards" });
+
+            line.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(25px,0px)' }],
+                { duration: 200, fill: "forwards" });
+        }
+        else if ((bmi.toFixed(2)) <= 15.5) {
+            mii.animate([{ transform: 'scaleX(1.0)' }, { transform: 'scaleX(0.3)' }],
+                { duration: 200, fill: "forwards" });
+
+            line.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(90px,0px)' }],
+                { duration: 200, fill: "forwards" });
+        }
+        else if ((bmi.toFixed(2)) <= 18.5) {
+            mii.animate([{ transform: 'scaleX(1.0)' }, { transform: 'scaleX(0.6)' }],
+                { duration: 200, fill: "forwards" });
+
+            line.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(140px,0px)' }],
+                { duration: 200, fill: "forwards" });
+        }
+        else if ((bmi.toFixed(2)) <= 23) {
+            mii.animate([{ transform: 'scaleX(1.0)' }, { transform: 'scaleX(1.0)' }],
+                { duration: 200, fill: "forwards" });
+
+            line.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(200px,0px)' }],
+                { duration: 200, fill: "forwards" });
+        }
+        else if ((bmi.toFixed(2)) <= 25) {
+            mii.animate([{ transform: 'scaleX(1.0)' }, { transform: 'scaleX(1.2)' }],
+                { duration: 200, fill: "forwards" });
+
+            line.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(250px,0px)' }],
+                { duration: 200, fill: "forwards" });
+        }
+        else if ((bmi.toFixed(2)) <= 27.5) {
+            mii.animate([{ transform: 'scaleX(1.0)' }, { transform: 'scaleX(1.5)' }],
+                { duration: 200, fill: "forwards" });
+
+            line.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(335px,0px)' }],
+                { duration: 200, fill: "forwards" });
+        }
+        else if ((bmi.toFixed(2)) <= 29.9) {
+            mii.animate([{ transform: 'scaleX(1.0)' }, { transform: 'scaleX(1.8)' }],
+                { duration: 200, fill: "forwards" });
+
+            line.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(380px,0px)' }],
+                { duration: 200, fill: "forwards" });
+        }
+        else if ((bmi.toFixed(2)) <= 32) {
+            mii.animate([{ transform: 'scaleX(1.0)' }, { transform: 'scaleX(2.2)' }],
+                { duration: 200, fill: "forwards" });
+
+            line.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(400px,0px)' }],
+                { duration: 200, fill: "forwards" });
+        }
+        else if ((bmi.toFixed(2)) <= 35.5) {
+            mii.animate([{ transform: 'scaleX(1.0)' }, { transform: 'scaleX(2.5)' }],
+                { duration: 200, fill: "forwards" });
+
+            line.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(435px,0px)' }],
+                { duration: 200, fill: "forwards" });
+        }
+        else if ((bmi.toFixed(2)) <= 39.5) {
+            mii.animate([{ transform: 'scaleX(1.0)' }, { transform: 'scaleX(2.8)' }],
+                { duration: 200, fill: "forwards" });
+
+            line.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(460px,0px)' }],
+                { duration: 200, fill: "forwards" });
+        }
+        else {
+            mii.animate([{ transform: 'scaleX(1.0)' }, { transform: 'scaleX(3.0)' }],
+                { duration: 200, fill: "forwards" });
+
+            line.animate([{ transform: 'translate(0,0)' }, { transform: 'translate(490px,0px)' }],
+                { duration: 200, fill: "forwards" });
+        }
+    }
+
+    var inpE = document.getElementById('rbutton').addEventListener('click', calculate, false);
+</script>
+
+</html>
