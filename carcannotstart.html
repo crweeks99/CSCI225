@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<header>
+    <title>Car can not start</title>
+</header>
+
+<h1>What to do when your car does not start?</h1>
+
+<div class="start" id="start">
+    <p>
+        Will your car start?
+        <input type="button" id="begin" value="No" onclick="f1()">
+    </p>
+</div>
+<div id="1" style="display: none">
+    <p>Does starter crank?</p>
+    <input type="button" id="begin" value="No" onclick="f2a()">
+    <input type="button" id="begin" value="Yes" onclick="f2b()">
+</div>
+<!--battery section-->
+<div id="2a" style="display: none">
+    <p>Starter spins?</p>
+    <input type="button" id="begin" value="No" onclick="f3a()">
+    <input type="button" id="begin" value="Yes" onclick="f3b()">
+</div>
+
+<div id="f3b" style="display: none">
+    <p>Solenoid stuck, not powered, missing teeth on flywheel</p>
+</div>
+
+<div id="f3a" style="display: none">
+    <p>Battery read over 12v?</p>
+    <input type="button" id="begin" value="No" onclick="f4a()">
+    <input type="button" id="begin" value="Yes" onclick="f4b()">
+</div>
+
+<div id="f4a" style="display: none">
+    <p>Jump start or pop start car and check if battery is charging.</p>
+</div>
+<div id="f4b" style="display: none">
+    <p>Cleaned terminals?</p>
+    <input type="button" id="begin" value="No" onclick="f5a()">
+    <input type="button" id="begin" value="Yes" onclick="f5b()">
+</div>
+<div id="f5a" style="display: none">
+    <p>Clean battery terminals</p>
+</div>
+<div id="f5b" style="display: none">
+    <p>With car in park or neutral, use heavy jumper or screwdriver to bypass starter relay solenoid. Test starter.</p>
+</div>
+<!--end of battery section-->
+
+<div id="2b" style="display: none">
+    <p>Engine fires?</p>
+    <input type="button" id="begin" value="No" onclick="efno()">
+    <input type="button" id="begin" value="Yes" onclick="efyes()">
+</div>
+<!--spark section-->
+<div id="stp" style="display: none">
+    <p>Spark to plugs</p>
+    <input type="button" id="begin" value="No" onclick="stpno()">
+    <input type="button" id="begin" value="Yes" onclick="stpyes()">
+</div>
+<div id="sfc" style="display: none">
+    <p>Spark from coil?</p>
+    <input type="button" id="begin" value="No" onclick="sfcno()">
+    <input type="button" id="begin" value="Yes" onclick="sfcyes()">
+</div>
+<div id="md" style="display: none">
+    <p>Mechanical Distributer?</p>
+    <input type="button" id="begin" value="No" onclick="mdno()">
+    <input type="button" id="begin" value="Yes" onclick="mdyes()">
+</div>
+<div id="mdyes" style="display: none">
+    <p>Check condenser points for magnetic pickup, rotor, or cap damage.</p>
+</div>
+<div id="mdno" style="display: none">
+    <p>For electronic distribution see model manual for diagnostic checks.</p>
+</div>
+<div id="cp" style="display: none">
+    <p>12v at coil primary?</p>
+    <input type="button" id="begin" value="No" onclick="cpno()">
+    <input type="button" id="begin" value="Yes" onclick="cpyes()">
+</div>
+<div id="cpyes" style="display: none">
+    <p>Test coil for interal short. Check secondary output wire resistance.</p>
+</div>
+<div id="cpno" style="display: none">
+    <p>Ignition system wiring, voltage regulator.</p>
+</div>
+<div id="ftf" style="display: none">
+    <p>Fuel to filter?</p>
+    <input type="button" id="begin" value="No" onclick="ftfno()">
+    <input type="button" id="begin" value="Yes" onclick="ftfyes()">
+</div>
+<div id="ftfno" style="display: none">
+    <p>Vapor lock, fuel pump blockage.</p>
+</div>
+<div id="fi" style="display: none">
+    <p>Fuel injected</p>
+    <input type="button" id="begin" value="No" onclick="fino()">
+    <input type="button" id="begin" value="Yes" onclick="fiyes()">
+</div>
+<div id="fiyes" style="display: none">
+    <p>Single point, check throttle body. Electronic multi-point, seperate diagnostic.</p>
+</div>
+<div id="fino" style="display: none">
+    <p>Tryy starter spray in carb, throttle open.</p>
+</div>
+<!--end of spark section-->
+
+<!--stalls section-->
+<div id="sas" style="display: none">
+    <p>Starts and stalls?</p>
+    <input type="button" id="begin" value="No" onclick="sasno()">
+    <input type="button" id="begin" value="Yes" onclick="sasyes()">
+</div>
+<div id="sasno" style="display: none">
+    <p>Ignition timing fuel problem, cranking too slow - battery, starter.</p>
+</div>
+<div id="obd" style="display: none">
+    <p>Check OBD, blink code?</p>
+    <input type="button" id="begin" value="No" onclick="obdno()">
+    <input type="button" id="begin" value="Yes" onclick="obdyes()">
+</div>
+<div id="obdno" style="display: none">
+    <p>Read OBD or OBD II or check blink code access.</p>
+</div>
+<div id="skr" style="display: none">
+    <p>Stalls on key release to run?</p>
+    <input type="button" id="begin" value="No" onclick="skrno()">
+    <input type="button" id="begin" value="Yes" onclick="skryes()">
+</div>
+<div id="skryes" style="display: none">
+    <p>Ignition "run" circuit or column key switch failure. Ring out with meter.</p>
+</div>
+<div id="sr" style="display: none">
+    <p>Stalls in rain?</p>
+    <input type="button" id="begin" value="No" onclick="srno()">
+    <input type="button" id="begin" value="Yes" onclick="sryes()">
+</div>
+<div id="sryes" style="display: none">
+    <p>Check for cracked coil Distributer. Check visible electrical arcing running in the dark.</p>
+</div>
+<div id="sw" style="display: none">
+    <p>Stalls warm?</p>
+    <input type="button" id="begin" value="No" onclick="swno()">
+    <input type="button" id="begin" value="Yes" onclick="swyes()">
+</div>
+<div id="swyes" style="display: none">
+    <p>Adjust idle, blow out fuel filter, check fuel pump output. Check vacuum leak or sensor failure.</p>
+</div>
+<div id="swno" style="display: none">
+    <p>On cold stalling, check for stuck choke, EGR. Check for vacuum leak.</p>
+</div>
+<!--end of stalls section-->
+
+<script>
+    function f1() {
+        var a = document.getElementById("start");
+        var b = document.getElementById("1");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function f2a() {
+        var a = document.getElementById("1");
+        var b = document.getElementById("2a");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function f2b() {
+        var a = document.getElementById("1");
+        var b = document.getElementById("2b");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function f3a() {
+        var a = document.getElementById("2a");
+        var b = document.getElementById("f3a");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function f3b() {
+        var a = document.getElementById("2a");
+        var b = document.getElementById("f3b");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function f4a() {
+        var a = document.getElementById("f3a");
+        var b = document.getElementById("f4a");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function f4b() {
+        var a = document.getElementById("f3a");
+        var b = document.getElementById("f4b");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function f5a() {
+        var a = document.getElementById("f4b");
+        var b = document.getElementById("f5a");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function f5b() {
+        var a = document.getElementById("f4b");
+        var b = document.getElementById("f5b");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function efno() {
+        var a = document.getElementById("2b");
+        var b = document.getElementById("stp");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function stpno() {
+        var a = document.getElementById("stp");
+        var b = document.getElementById("sfc");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function sfcyes() {
+        var a = document.getElementById("sfc");
+        var b = document.getElementById("md");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function sfcno() {
+        var a = document.getElementById("sfc");
+        var b = document.getElementById("cp");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function cpyes() {
+        var a = document.getElementById("cp");
+        var b = document.getElementById("cpyes");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function cpno() {
+        var a = document.getElementById("cp");
+        var b = document.getElementById("cpno");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function mdno() {
+        var a = document.getElementById("md");
+        var b = document.getElementById("mdno");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function mdyes() {
+        var a = document.getElementById("md");
+        var b = document.getElementById("mdyes");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+
+    function stpyes() {
+        var a = document.getElementById("stp");
+        var b = document.getElementById("ftf");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function ftfno() {
+        var a = document.getElementById("ftf");
+        var b = document.getElementById("ftfno");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function ftfyes() {
+        var a = document.getElementById("ftf");
+        var b = document.getElementById("fi");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function fiyes() {
+        var a = document.getElementById("fi");
+        var b = document.getElementById("fiyes");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function fino() {
+        var a = document.getElementById("fi");
+        var b = document.getElementById("fino");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+
+    function efyes() {
+        var a = document.getElementById("2b");
+        var b = document.getElementById("sas");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function sasno() {
+        var a = document.getElementById("sas");
+        var b = document.getElementById("sasno");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function sasyes() {
+        var a = document.getElementById("sas");
+        var b = document.getElementById("obd");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function obdno() {
+        var a = document.getElementById("obd");
+        var b = document.getElementById("obdno");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function obdyes() {
+        var a = document.getElementById("obd");
+        var b = document.getElementById("skr");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function skryes() {
+        var a = document.getElementById("skr");
+        var b = document.getElementById("skryes");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function skrno() {
+        var a = document.getElementById("skr");
+        var b = document.getElementById("sr");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function sryes() {
+        var a = document.getElementById("sr");
+        var b = document.getElementById("sryes");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function srno() {
+        var a = document.getElementById("sr");
+        var b = document.getElementById("sw");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function swno() {
+        var a = document.getElementById("sw");
+        var b = document.getElementById("swno");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+    function swyes() {
+        var a = document.getElementById("sw");
+        var b = document.getElementById("swyes");
+        if (a.style.display === 'block') {
+            a.style.display = "none";
+        } else {
+            a.style.display = "none";
+        }
+        if (b.style.display === 'none') {
+            b.style.display = "block";
+        }
+    }
+</script>
+
+<style>
+    body {
+        background-image: url("img/IMG_1272.jpg");
+        background-size: cover;
+    }
+    
+    div {
+        padding: 2%;
+        background-color: rgba(126, 125, 125, 0.685);
+        text-align: center;
+        font-size: 50px;
+        color: white;
+        position: fixed;
+        top: 200px;
+    }
+
+    h1 {
+        font-size: 50px;
+        color: white;
+    }
+</style>
+
+</html>
